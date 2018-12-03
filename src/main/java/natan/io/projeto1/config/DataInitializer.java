@@ -22,11 +22,22 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 		List<User> users = userRepository.findAll();
 
 		if (users.isEmpty()) {
-			User user = new User();
-			user.setEmail("a@acom");
-			user.setName("Grando");
-			userRepository.save(user);
+			createUser("Mauricio", "mauricio@gmail.com");
+			createUser("Grando", "grando@gmail.com");
+			createUser("Mariazinha", "mariazinha@gmail.com");
 		}
+
+		User user = userRepository.pegarNomeComQuery("Grando");
+		System.out.println("Nome: " + user.getName());
+
+		user = userRepository.findByNameIgnoreCaseLike("gran");
+		System.err.println(user.getEmail());
+	}
+
+	public void createUser(String name, String email) {
+		User user = new User(name, email);
+		userRepository.save(user);
+
 	}
 
 }
