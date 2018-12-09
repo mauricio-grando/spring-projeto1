@@ -1,4 +1,4 @@
 # spring-projeto1
-Projeto Sprint - Curso Udemy
+Projeto Spring - Curso Udemy
 
 Basta executar o projeto no STS.
